@@ -76,6 +76,15 @@ namespace SeleniumDocumentation.SeleniumInteractions
             printOptions.ShrinkToFit = true;
             bool currentShrinkToFit = printOptions.ShrinkToFit;
         }
-    }
 
+        [TestMethod]
+        public void PrintWithPrintsPageTest() 
+        {
+            WebDriver driver = new ChromeDriver();
+            driver.Navigate().GoToUrl("https://www.selenium.dev/");
+            PrintOptions printOptions = new PrintOptions();
+            PrintDocument printedPage = driver.Print(printOptions);
+            Assert.IsNotNull(printedPage.AsBase64EncodedString);
+        }
+    }
 }
