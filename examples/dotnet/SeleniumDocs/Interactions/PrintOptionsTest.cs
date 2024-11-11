@@ -84,7 +84,7 @@ namespace SeleniumDocumentation.SeleniumInteractions
             driver.Navigate().GoToUrl("https://www.selenium.dev/");
             PrintOptions printOptions = new PrintOptions();
             PrintDocument printedPage = driver.Print(printOptions);
-            Assert.IsNotNull(printedPage.AsBase64EncodedString);
+            Assert.IsTrue(printedPage.AsBase64EncodedString.StartsWith("JVBER"));
         }
     }
 }
